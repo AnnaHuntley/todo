@@ -44,8 +44,5 @@ jobs:
       - image: cimg/ruby:3.1.0
     steps:
       - run:
-          name: deploy-application
-          command: ssh -o StrictHostKeyChecking=no $EC_USERNAME@EC2_PUBLIC_DNS "export CONTAINER_NAME=\"$CONTAINER_NAME\"; export IMAGE_NAME=\"$IMAGE_NAME\"; rm -rf todo/; git clone https://github.com/AnnaHuntley/todo; source todo/deploy.sh"
-      - run:
           name: deploy-application-verbose
           command: ssh -vvv -o StrictHostKeyChecking=no $EC_USERNAME@EC2_PUBLIC_DNS "export CONTAINER_NAME=\"$CONTAINER_NAME\"; export IMAGE_NAME=\"$IMAGE_NAME\"; rm -rf todo/; git clone https://github.com/AnnaHuntley/todo; source todo/deploy.sh"
